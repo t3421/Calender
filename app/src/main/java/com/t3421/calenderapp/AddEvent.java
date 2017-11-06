@@ -1,8 +1,11 @@
 package com.t3421.calenderapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -30,6 +33,43 @@ public class AddEvent extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        Button cancelEvent = (Button) findViewById(R.id.cancel);
+        cancelEvent.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                Intent intent = new Intent(AddEvent.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
+        Button addStartTime = (Button) findViewById(R.id.start_time);
+        addStartTime.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                Intent intent = new Intent(AddEvent.this, AddTime.class);
+                startActivity(intent);
+            }
+        });
+
+        Button addEndTime = (Button) findViewById(R.id.end_time);
+        addEndTime.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                Intent intent = new Intent(AddEvent.this, AddTime.class);
+                startActivity(intent);
+            }
+        });
+
+        Button addDate = (Button) findViewById(R.id.start_date);
+        addDate.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                Intent intent = new Intent(AddEvent.this, AddCalenderDate.class);
+                startActivity(intent);
             }
         });
     }
